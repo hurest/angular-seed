@@ -14,7 +14,6 @@ let defaultTaskList = [
   'watch:html'
 ];
 
-
 gulp.task('sass', function () {
   return gulp.src(CONFIG.PATH.DEV.FILES.SASS_ROOT)
     .pipe(sourcemaps.init())
