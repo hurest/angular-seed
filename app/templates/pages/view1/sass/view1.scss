@@ -1,3 +1,12 @@
 h2 {
     font-size: 15px;
 }
+
+#view1 {
+    .message {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        min-height: 10px;
+    }
+}

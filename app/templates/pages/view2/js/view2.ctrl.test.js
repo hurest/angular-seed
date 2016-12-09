@@ -1,3 +1,4 @@
+/*
 describe('view2 controller', function () {
 
   beforeEach(module('seedApp'));
@@ -20,3 +21,4 @@ describe('view2 controller', function () {
 
 
 });
+*/
