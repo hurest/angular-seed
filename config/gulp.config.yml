@@ -1,0 +1,21 @@
+---
+# gulp config
+PATH:
+ DEV:
+  DIRS:
+   JS:
+    app/js
+   STYLE:
+    app/style
+  FILES:
+   HTML:
+    - index.html
+    - app/templates/**/**/html/*.html
+   JS:
+    - app/js/**/*.js
+    - app/templates/**/**/js/*.js
+   SASS:
+    - app/style/**/*.scss
+    - app/templates/**/**/sass/*.scss
+   SASS_ROOT:
+     app/style/style.scss

@@ -1,0 +1,31 @@
+{
+  "name": "ng-md-seed",
+  "description": "angular + material + testing",
+  "main": "index.js",
+  "authors": [
+    "cyrus70"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "javascript",
+    "angular",
+    "material",
+    "karma",
+    "protractor"
+  ],
+  "homepage": "https://github.com/hurest/ng-md-seed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-moment": "^1.0.1",
+    "angular-ui-router": "^0.3.2",
+    "jquery": "^3.1.1"
+  }
+}

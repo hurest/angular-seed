@@ -1,0 +1,37 @@
+{
+  "name": "ng-md-seed",
+  "version": "0.0.1",
+  "description": "angular + material + testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://hurest@github.com/hurest/ng-md-seed.git"
+  },
+  "keywords": [
+    "angular",
+    "javascript",
+    "angular",
+    "material",
+    "karma",
+    "protractor"
+  ],
+  "author": "cyrus70",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hurest/ng-md-seed/issues"
+  },
+  "homepage": "https://github.com/hurest/ng-md-seed#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-watch": "^4.3.11",
+    "yamljs": "^0.2.8"
+  }
+}
