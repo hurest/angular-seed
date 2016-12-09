@@ -4,7 +4,10 @@
   "description": "angular + material + testing",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor config/protractor.conf.js"
   },
   "repository": {
     "type": "git",
