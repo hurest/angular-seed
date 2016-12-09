@@ -1,4 +1,3 @@
-angular.module('seedApp')
-.run(function(){
+seedApp.run(function(){
 
 });

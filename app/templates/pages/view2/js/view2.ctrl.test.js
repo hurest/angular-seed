@@ -1,16 +1,22 @@
-/*
-describe('seedApp module', function() {
+describe('view2 controller', function () {
 
   beforeEach(module('seedApp'));
 
-  describe('view2 controller', function(){
+  var $controller;
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var view2Ctrl = $controller('view2Controller');
-      expect(view2Ctrl).toBeDefined();
-    }));
+  beforeEach(inject(function (_$controller_) {
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
+  }));
 
-  });
+  it('should ....', inject(function () {
+
+    var $scope = {};
+    var controller = $controller('view2Controller', { $scope: $scope });
+
+    console.log( $scope );
+
+  }));
+
+
 });
-*/

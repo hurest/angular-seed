@@ -1,11 +1,10 @@
-angular.module('seedApp', [
+var seedApp = angular.module('seedApp', [
         'ngMaterial',
         'angularMoment',
         'ui.router'
     ]);
 
-angular.module('seedApp')
-.config(function($urlRouterProvider, $stateProvider) {
+seedApp.config(function($urlRouterProvider, $stateProvider) {
 
     $stateProvider
         .state('view1', {

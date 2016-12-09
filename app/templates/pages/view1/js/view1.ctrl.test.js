@@ -1,15 +1,22 @@
-describe('seedApp module', function() {
+describe('view1 controller', function () {
 
   beforeEach(module('seedApp'));
 
-  describe('view1 controller', function(){
+  var $controller;
 
-    it('should ....', inject(function($controller) {
+  beforeEach(inject(function (_$controller_) {
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
+  }));
 
-      //spec body
-      var view1Ctrl = $controller('view3Controller');
-      expect(view1Ctrl).toBeDefined();
-    }));
- 
-  });
+  it('should ....', inject(function () {
+
+    var $scope = {};
+    var controller = $controller('view1Controller', { $scope: $scope });
+
+    console.log( $scope );
+
+  }));
+
+
 });
