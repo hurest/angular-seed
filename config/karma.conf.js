@@ -24,6 +24,8 @@ module.exports = function(config) {
 
     autoWatch: true,
 
+    reporters: ['progress'],
+
     frameworks: ['jasmine'],
 
     browsers: ['Chrome'],
@@ -33,11 +35,11 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-junit-reporter'
     ],
-
+/*
     junitReporter: {
       outputFile: './unit.xml',
       suite: 'unit'
     }
-
+*/
   });
 };

@@ -1,4 +1,4 @@
-seedApp.controller('view1Controller', function($scope, $http){
+seedApp.controller('view1Controller', function($scope, $timeout, $http){
 
     initCtrl();
 
@@ -6,11 +6,20 @@ seedApp.controller('view1Controller', function($scope, $http){
         return testFunc();
     };
 
+    $scope.test = function () {
+        console.log('exec test func');
+        $timeout(function(){
+            $scope.test2 = '345';
+        }, 500);
+    };
+
     function initCtrl () {
 
         $scope.test = '123';
 
-        //getMessage();
+        getMessage();
+
+        
     }
 
     function testFunc () {
@@ -19,11 +28,12 @@ seedApp.controller('view1Controller', function($scope, $http){
 
     function getMessage () {
 
+        $scope.a = 9;
+
         $http.get('/api/test.json')
             .then(function(res){
                 $scope.message = res.data.data.message;
-            })
-            .catch(function(res){
+            }, function(res){
                 $scope.res = res;
             });
 
