@@ -10,6 +10,8 @@ exports.config = {
   chromeOnly: true,
   directConnect: true,
 
+  reporters: ['progress'],
+
   capabilities: {
     'browserName': 'chrome'
   },

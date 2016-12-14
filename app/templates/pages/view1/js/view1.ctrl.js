@@ -12,18 +12,24 @@ seedApp.controller('view1Controller', function($scope, $timeout, $http){
     }
 
     function initCtrl () {
+
+        $scope.array = ['123', '345'];
         
         $scope.test = '123';
-        getMessage();
+        getMessage(function(){
+            $scope.message = 'ok';
+        });
     }
 
-    function getMessage () {
+    function getMessage (callback) {
 
         $scope.a = 9;
 
         $http.get('/api/test.json')
             .then(function(res){
                 $scope.message = res.data.data.message;
+
+                typeof callback !== 'function' || callback(res);
             }, function(res){
                 $scope.res = res;
             });

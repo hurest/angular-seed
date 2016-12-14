@@ -2,40 +2,30 @@
 
 describe('my app', function() {
 
+  describe('1. index.html 접속', function() {
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    browser.get('index.html');
-    expect(browser.getLocationAbsUrl()).toMatch("/view1");
-  });
+    it('첫 접속 시 view1 로 가는지 체크', function() {
 
-/*
-  describe('view1', function() {
+      browser.get('/');
+      expect(browser.getLocationAbsUrl()).toMatch("/view1");
 
-    beforeEach(function() {
-      browser.get('index.html#!/view1');
-    });
-
-
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
     });
 
   });
 
-
-  describe('view2', function() {
-
-    beforeEach(function() {
-      browser.get('index.html#!/view2');
-    });
+  describe('2. view2 로 접속', function() {
 
 
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
+    it('view2Body 내용을 확인', function() {
+
+      browser.get('/#!/view2');
+
+      var body = element( by.id('view2Body') );
+      
+      expect( body.getText() ).toEqual('view2\n입니다.');
+      
     });
 
   });
-  */
+
 });

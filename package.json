@@ -6,7 +6,7 @@
   "scripts": {
     "unit-test": "clear & karma start config/karma.conf.js --single-run || true",
     "update-webdriver": "webdriver-manager update",
-    "e2e-test": "protractor config/protractor.conf.js"
+    "e2e-test": "clear & protractor config/protractor.conf.js || true"
   },
   "repository": {
     "type": "git",

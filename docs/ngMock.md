@@ -1,5 +1,7 @@
 # ngMock
 
+[jasmin 문법 참고](https://jasmine.github.io/edge/introduction)
+
 ### Provider
 
 1. [$exceptionHandlerProvider](https://docs.angularjs.org/api/ngMock/provider/$exceptionHandlerProvider)
