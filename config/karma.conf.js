@@ -24,9 +24,15 @@ module.exports = function(config) {
 
     autoWatch: true,
 
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || 
+    // config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_ERROR,
+
     reporters: ['progress'],
 
     frameworks: ['jasmine'],
+
+    //captureTimeout: 60000,
 
     browsers: ['Chrome'],
 
@@ -35,6 +41,8 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-junit-reporter'
     ],
+
+    singleRun: true
 /*
     junitReporter: {
       outputFile: './unit.xml',

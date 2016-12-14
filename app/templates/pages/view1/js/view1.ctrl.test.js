@@ -2,54 +2,39 @@ describe('view1 controller 테스트 시나리오', function () {
 
   beforeEach(module('seedApp'));
 
-  var $httpBackend, $rootScope;
-  var api = {};
+  beforeEach(inject(function ($httpBackend) {
 
-  beforeEach(inject(function ($injector) {
-
-    $httpBackend = $injector.get('$httpBackend');
-    //$controller = $injector.get('$controller');
-
-    api['GET:/test.json'] = $httpBackend.when('GET', '/api/test.json');
+    // 템플릿 로드 무시
+    $httpBackend.when('GET', /^\/app\/templates/).respond('');
 
   }));
 
-  it('1. 컨트롤러 $scope 테스트', inject(function($controller, $timeout){
-
-    var $scope = {}; 
-    
-    $controller('view1Controller', { $scope: $scope });
-
-    $scope.test();
-    $timeout.flush();
-
-    console.log( $scope );
-
-    expect($scope.test).toEqual('123');
-
-    
-
-  }));
-/*
-  it('2. $http.get 테스트', inject(function () {
+  it('1. 컨트롤러 $scope 테스트', inject(function ($controller, $timeout) {
 
     var $scope = {};
 
-    api['GET:/test.json'].respond(200, { result: 'fail' });
-
-    //console.log( api );
-
-    var a = $httpBackend.expectGET('/api/test.json');
-
     $controller('view1Controller', { $scope: $scope });
 
-    //console.log( $scope );
+    $scope.timeout();
+    $timeout.flush(600);
+    expect($scope.test2).toEqual('345');
+    $timeout.flush();
+    expect($scope.test2).toEqual('567');
+
+  }));
+
+  it('2. $http.get 테스트', inject(function ($controller, $httpBackend) {
+
+    $httpBackend.expectGET('/api/test.json').respond({ data: { message: 'error' } });
+
+    var $scope = {};
+    $controller('view1Controller', { $scope: $scope });
 
     $httpBackend.flush();
 
-    //console.log( $scope );
+    expect($scope.message).toEqual('error');
 
   }));
-*/
+
 
 });
