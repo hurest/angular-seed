@@ -4,7 +4,9 @@ var seedApp = angular.module('seedApp', [
         'ui.router'
     ]);
 
-seedApp.config(function($urlRouterProvider, $stateProvider) {
+seedApp.config(function($urlRouterProvider, $httpProvider, $stateProvider) {
+
+    $httpProvider.interceptors.push('httpInterceptor');
 
     $stateProvider
         .state('view1', {

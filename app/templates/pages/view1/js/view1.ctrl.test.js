@@ -1,3 +1,6 @@
+// 
+console.log = function(){};
+
 describe('view1 controller 테스트 시나리오', function () {
 
   beforeEach(module('seedApp'));
