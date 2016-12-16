@@ -45,8 +45,8 @@ gulp.task('watch:html', function () {
 gulp.task('default', defaultTaskList, function () {
 
   connect.server({
+    fallback: './app/index.html',
     livereload: true,
-    fallback: 'index.html',
     middleware: function () {
       return [
 /*        modRewrite([
