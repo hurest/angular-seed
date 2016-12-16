@@ -25,7 +25,7 @@ seedApp.controller('view1Controller', function($scope, $timeout, $http){
 
         $scope.a = 9;
 
-        $http.get('/api/v1/test.json')
+        $http.get('/api/test.json')
             .then(function(res){
                 $scope.message = res.data.data.message;
 

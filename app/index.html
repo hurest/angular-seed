@@ -3,8 +3,12 @@
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="icon" href="/res/icon/favicon.ico" />
+    <!-- build:css css/style.css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="app/style/style.css" />
+    <!-- endbuild -->
+    <!-- source:js -->
+    <!-- build:js js/tmp.vender.js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -14,14 +18,17 @@
     <script src="bower_components/moment/locale/ko.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbuild -->
+    <!-- build:js js/tmp.app.js -->
     <script src="app/js/init/config.js"></script>
     <script src="app/js/app.js"></script>
     <script src="app/js/http.srvc.js"></script>
     <script src="app/js/ctrls.js"></script>
     <script src="app/js/fltrs.js"></script>
-    <!-- template js -->
     <script src="app/templates/pages/view1/js/view1.ctrl.js"></script>
     <script src="app/templates/pages/view2/js/view2.ctrl.js"></script>
+    <!-- endbuild -->
+    <!-- endsource -->
 </head>
 <body>
     <div ui-view></div>

@@ -1,5 +1,7 @@
 ---
 # gulp config
+APPNAME:
+ seedApp
 PATH:
  DEV:
   DIRS:
