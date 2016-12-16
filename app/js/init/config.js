@@ -1,12 +1,17 @@
 var seedApp = angular.module('seedApp', [
-        'ngMaterial',
-        'angularMoment',
-        'ui.router'
-    ]);
+    'ngMaterial',
+    'angularMoment',
+    'ui.router'
+]);
 
-seedApp.config(function($urlRouterProvider, $httpProvider, $stateProvider) {
+seedApp.config(function ($urlRouterProvider, $httpProvider, $locationProvider, $stateProvider) {
 
     $httpProvider.interceptors.push('httpInterceptor');
+
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 
     $stateProvider
         .state('view1', {

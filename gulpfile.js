@@ -1,4 +1,4 @@
-const YAML   = require('yamljs');
+const YAML = require('yamljs');
 const CONFIG = YAML.load('config/gulp.config.yml');
 
 const gulp = require('gulp');
@@ -6,6 +6,7 @@ const sass = require('gulp-sass');
 const watch = require('gulp-watch');
 const connect = require('gulp-connect');
 const sourcemaps = require('gulp-sourcemaps');
+const modRewrite = require('connect-modrewrite');
 
 
 let defaultTaskList = [
@@ -44,7 +45,15 @@ gulp.task('watch:html', function () {
 gulp.task('default', defaultTaskList, function () {
 
   connect.server({
-        livereload: true
-    });
+    livereload: true,
+    fallback: 'index.html',
+    middleware: function () {
+      return [
+/*        modRewrite([
+          '^/api/v1/(.*)$ http://localhost:8080/api/$1 [P]'
+        ]) */
+      ];
+    }
+  });
 
 });
