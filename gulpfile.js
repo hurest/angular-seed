@@ -8,6 +8,7 @@ const connect = require('gulp-connect');
 const sourcemaps = require('gulp-sourcemaps');
 const modRewrite = require('connect-modrewrite');
 const useref = require('gulp-useref');
+const gulpsync = require('gulp-sync')(gulp);
 const templateCache = require('gulp-angular-templatecache');
 const concat = require('gulp-concat');
 const angularFilesort = require('gulp-angular-filesort');
@@ -81,13 +82,28 @@ gulp.task('combine', ['angular-template'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('angular-concat', ['combine'], function () {
+gulp.task('client-file', ['combine'], function () {
 
-    return gulp.src('dist/js/*.js')
-        .pipe(angularFilesort())
-        .pipe(concat('dist.js'))
+    return gulp.src(['dist/js/tmp.app.js', 'dist/js/tmp.template.js'])
+      .pipe(angularFilesort())
         .pipe(ngAnnotate())
-        .pipe(uglify({outSourceMap: true}))
+        .pipe(concat('tmp.concat.client.js'))
+        
+        
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('angular-concat', ['client-file'], function () {
+
+  var uglifyOpts = {
+    output: {
+      comments: true
+    }
+  };
+
+    return gulp.src(['dist/js/tmp.concat.vender.js', 'dist/js/tmp.concat.client.js'])
+        .pipe(concat('dist.js'))
+        .pipe(uglify(uglifyOpts))
         .pipe(gulp.dest('dist/js'));
 });
 
@@ -102,7 +118,10 @@ gulp.task('replace', ['angular-concat'], function(){
 
 });
 
-gulp.task('build', ['replace'], function () {
+var tasks = ['replace'];
+
+
+gulp.task('build', gulpsync.sync(tasks), function () {
 
     return gulp.src('dist/js/tmp.*.js', { read: false })
         .pipe(clean());
@@ -113,11 +132,16 @@ gulp.task('dist', function () {
     fallback: './dist/index.html',
     root: './dist',
     livereload: false,
-    port: 8000
+    port: 8000,
+    middleware: function () {
+      return [
+        modRewrite([ '^/api/(.*)$ http://localhost:8080/api/$1 [P]' ])
+      ];
+    }
   });
 });
 
-gulp.task('default', defaultTaskList, function () {
+gulp.task('default', gulpsync.sync(defaultTaskList), function () {
 
   connect.server({
     fallback: './app/index.html',
